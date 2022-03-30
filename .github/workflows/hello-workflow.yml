@@ -15,5 +15,5 @@ jobs:
         run: echo Hello World!
       - name: Say Goodbye!
         run: |
-	  echo Job finished.
+          echo Job finished.
           echo Goodbye!
