@@ -6,7 +6,6 @@ jobs:
   run-bats-on-script:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
-        run: echo "pre-checkout" && ls -lah
-        uses: actions/checkout@v3
-        run: echo "post-checkout" && ls -lah
+      - run: echo "pre-checkout" && ls -lah
+      - uses: actions/checkout@v3
+      - run: echo "post-checkout" && ls -lah
