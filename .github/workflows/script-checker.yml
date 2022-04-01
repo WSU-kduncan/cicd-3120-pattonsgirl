@@ -6,6 +6,11 @@ jobs:
   run-bats-on-script:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "pre-checkout" && ls -lah && pwd
-      - uses: actions/checkout@v3
+      - name: pre-checkout step
+        run: echo "pre-checkout" && ls -lah && pwd
+      - name: checking out repo
+        uses: actions/checkout@v3
       - run: echo "post-checkout" && ls -lah && pwd
+      - uses: actions/setup-node@v3
+      - run: npm install -g bats
+      - run: bats -v
