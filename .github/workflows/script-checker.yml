@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: checkout repo
         run: echo "pre-checkout" && ls -lah
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         run: echo "post-checkout" && ls -lah
