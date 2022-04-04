@@ -7,7 +7,7 @@ on:
   push:
     branches: [master]
     tags:
-      - 'v*.*'
+      - 'v*.*.*'
 
 env:
   DOCKER_REPO: site2
@@ -24,9 +24,10 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           # list of Docker images to use as base name for tags
-          images: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}
+          images: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}
           # generate Docker tags based on the following events/attributes
+          flavor: |
+            latest=auto
           tags: |
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
@@ -42,7 +43,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:latest,${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
           #tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:latest,${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:2.0
           #labels: ${{ steps.meta.outputs.labels }}
 
