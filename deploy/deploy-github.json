@@ -14,7 +14,19 @@
               					"name": "X-Hub-Signature"
             					}
           				}
-        			}
+				},
+				{
+				"match": {
+					"type": "value",
+					"value": "completed",
+					"parameter": 
+					{
+						"source": "payload",
+						"name": "action"
+					}
+
+					}
+				}
   				
 				]
 		}
