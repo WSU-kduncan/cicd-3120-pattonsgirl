@@ -1,0 +1,8 @@
+[Unit]
+Description=Webhooks
+
+[Service]
+ExecStart=/home/ubuntu/go/bin/webhook -hooks /home/ubuntu/deploy-github.json -hotreload
+
+[Install]
+WantedBy=multi-user.target
