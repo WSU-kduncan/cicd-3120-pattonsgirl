@@ -2,9 +2,9 @@ name: docker-build-push
 
 #on: [push]
 on:
-  schedule:
+  #schedule:
     # this is UTC time - so really 10:20 AM https://jasonet.co/posts/scheduled-actions/
-    - cron: '20 14 * * *'
+   # - cron: '20 14 * * *'
   push:
     branches: [master]
     tags:
